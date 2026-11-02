@@ -1,0 +1,646 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --cc-navy: #111c36;
+  --cc-navy-light: #1b2b4d;
+  --cc-primary: #5268e8;
+  --cc-primary-hover: #4055d2;
+  --cc-bg: #f5f7fb;
+  --cc-card: #ffffff;
+  --cc-text: #172033;
+  --cc-muted: #7b8499;
+  --cc-border: #e8ebf3;
+  --cc-success: #16875d;
+  --cc-danger: #d84949;
+  --cc-sidebar-width: 258px;
+  --cc-radius: 16px;
+  --cc-shadow: 0 6px 24px rgba(24, 39, 75, .045);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  font-size: 14px;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+button {
+  border: 0;
+  border-radius: 10px !important;
+  padding: 11px 16px !important;
+  font-size: 13px;
+  font-weight: 650 !important;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(23, 32, 51, .11);
+}
+
+button:disabled {
+  opacity: .58;
+  cursor: not-allowed !important;
+}
+
+/* Application shell */
+
+#root > div[style*="min-height: 100vh"] {
+  min-height: 100vh;
+  background: var(--cc-bg) !important;
+}
+
+/* Top application bar */
+
+header {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  right: 0;
+  left: var(--cc-sidebar-width);
+  height: 78px;
+  padding: 0 34px !important;
+  background: rgba(255, 255, 255, .96) !important;
+  color: var(--cc-text) !important;
+  border-bottom: 1px solid var(--cc-border);
+  box-shadow: none !important;
+  backdrop-filter: blur(16px);
+}
+
+header h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.8px;
+}
+
+header small {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--cc-muted) !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+header span {
+  max-width: 230px;
+  overflow: hidden;
+  color: #515c73;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+header button {
+  background: #fff0f0 !important;
+  color: #c43c48 !important;
+  border: 1px solid #ffe0e2 !important;
+}
+
+/* Sidebar navigation
+   The existing JSX nav becomes a fixed sidebar. */
+
+nav {
+  position: fixed;
+  z-index: 40;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex !important;
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+  align-items: stretch;
+  gap: 7px !important;
+  width: var(--cc-sidebar-width);
+  height: 100vh;
+  margin: 0 !important;
+  padding: 112px 17px 24px !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--cc-navy) !important;
+  border: 0 !important;
+  border-right: 1px solid rgba(255,255,255,.06);
+  border-radius: 0 !important;
+  box-shadow: 8px 0 28px rgba(17, 28, 54, .06) !important;
+}
+
+/* Sidebar brand area */
+
+nav::before {
+  content: 'COURSECOMPASS';
+  position: absolute;
+  top: 26px;
+  left: 24px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+nav::after {
+  content: 'COORDINATOR WORKSPACE';
+  position: absolute;
+  top: 52px;
+  left: 24px;
+  color: #8997b7;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px !important;
+  border: 1px solid transparent !important;
+  border-radius: 11px !important;
+  background: transparent !important;
+  color: #aeb9d0 !important;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  white-space: normal;
+}
+
+nav button:hover {
+  background: rgba(255,255,255,.07) !important;
+  color: #fff !important;
+  transform: none;
+  box-shadow: none !important;
+}
+
+/* The active nav button uses inline background #1d4ed8. */
+
+nav button[style*="background: rgb(29, 78, 216)"],
+nav button[style*="background: rgb(29, 78, 216)"]:hover {
+  background: linear-gradient(110deg, #5268e8, #4357ce) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.12) !important;
+  box-shadow: 0 5px 16px rgba(55, 75, 195, .25) !important;
+}
+
+/* Main workspace */
+
+main {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+  margin: 0 0 0 var(--cc-sidebar-width) !important;
+  padding: 110px 36px 28px !important;
+}
+
+main > h1 {
+  margin-top: 2px;
+  margin-bottom: 9px !important;
+  color: #172033;
+  font-size: clamp(27px, 2.5vw, 34px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.25;
+}
+
+main > p {
+  max-width: 800px;
+  color: var(--cc-muted) !important;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Section headings */
+
+h2 {
+  color: #19233a;
+  font-weight: 750;
+  letter-spacing: -.55px;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 19px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--cc-border);
+  color: #384b91;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: -.2px;
+}
+
+/* Cards and panels */
+
+div[style*="box-shadow: 0 2px 8px"] {
+  margin-bottom: 23px !important;
+  padding: 25px !important;
+  border: 1px solid var(--cc-border);
+  border-radius: var(--cc-radius) !important;
+  background: var(--cc-card) !important;
+  box-shadow: var(--cc-shadow) !important;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+div[style*="box-shadow: 0 2px 8px"]:hover {
+  border-color: #dfe4f4;
+  box-shadow: 0 10px 32px rgba(24, 39, 75, .065) !important;
+}
+
+/* Overview statistics */
+
+main h2[style*="font-size: 32px"] {
+  margin-top: 8px !important;
+  color: var(--cc-primary) !important;
+  font-size: 34px !important;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+main div[style*="box-shadow: 0 2px 8px"] p {
+  color: var(--cc-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+main div[style*="box-shadow: 0 2px 8px"] > div[style*="font-size: 30px"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: #edf0ff;
+}
+
+/* Forms */
+
+label {
+  display: block;
+  color: #46516a;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1.7;
+}
+
+input:not([type="checkbox"]),
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: 43px;
+  margin-top: 7px !important;
+  margin-bottom: 15px !important;
+  padding: 11px 13px !important;
+  border: 1px solid #e0e5ef !important;
+  border-radius: 10px !important;
+  outline: none;
+  background: #fff !important;
+  color: #19233a !important;
+  font-size: 13px !important;
+  box-shadow: 0 1px 2px rgba(20, 30, 60, .02);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  border-color: #8290f4 !important;
+  box-shadow: 0 0 0 4px rgba(82, 104, 232, .10) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0a9bb;
+}
+
+textarea {
+  min-height: 110px;
+  line-height: 1.7;
+}
+
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--cc-primary);
+  cursor: pointer;
+}
+
+/* Primary, secondary and destructive actions */
+
+button[style*="background: rgb(37, 99, 235)"] {
+  background: var(--cc-primary) !important;
+  color: white !important;
+  box-shadow: 0 4px 10px rgba(82, 104, 232, .15);
+}
+
+button[style*="background: rgb(37, 99, 235)"]:hover {
+  background: var(--cc-primary-hover) !important;
+}
+
+button[style*="background: rgb(226, 232, 240)"] {
+  background: #f0f2f8 !important;
+  color: #47516a !important;
+  border: 1px solid #e4e8f1 !important;
+}
+
+button[style*="background: rgb(254, 226, 226)"] {
+  background: #fff0f0 !important;
+  color: #c43c48 !important;
+  border: 1px solid #ffe0e2 !important;
+}
+
+button[type="submit"] {
+  min-height: 43px;
+}
+
+/* Tables */
+
+div[style*="overflow-x: auto"] {
+  max-width: 100%;
+  margin-bottom: 25px;
+  overflow-x: auto !important;
+  border: 1px solid var(--cc-border);
+  border-radius: 13px !important;
+  background: white !important;
+  box-shadow: var(--cc-shadow);
+}
+
+table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  background: #fff;
+}
+
+thead th {
+  background: #f6f7fc !important;
+  color: #737e95 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .75px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 15px 14px !important;
+  border-bottom: 1px solid #edf0f6 !important;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+td {
+  color: #515c73;
+  font-size: 12px !important;
+}
+
+tbody tr {
+  transition: background .15s ease;
+}
+
+tbody tr:hover {
+  background: #f8f9fe;
+}
+
+tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+td strong {
+  color: #202a40;
+  font-weight: 750;
+}
+
+td small {
+  margin-top: 4px;
+  color: var(--cc-muted);
+  line-height: 1.5;
+}
+
+td button {
+  margin: 2px 0;
+  white-space: nowrap;
+}
+
+/* Search boxes */
+
+input[placeholder*="Search"] {
+  display: block;
+  max-width: 480px;
+  min-height: 45px;
+  margin: 12px 0 20px !important;
+  border-radius: 11px !important;
+}
+
+/* Feedback */
+
+[role="alert"],
+[role="status"] {
+  margin: 16px 0 22px;
+  padding: 15px 18px !important;
+  border-radius: 11px !important;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+[role="alert"] {
+  border: 1px solid #ffd4d4;
+}
+
+[role="status"] {
+  border: 1px solid #c9efdd;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 34px;
+  padding-top: 22px !important;
+  border-top: 1px solid var(--cc-border);
+  color: var(--cc-muted);
+  font-size: 11px !important;
+}
+
+/* Loading screen */
+
+body > #root > div[style*="padding: 40px"] {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 30px !important;
+  color: var(--cc-muted);
+  font-size: 14px;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  :root {
+    --cc-sidebar-width: 220px;
+  }
+
+  main {
+    padding-right: 23px !important;
+    padding-left: 23px !important;
+  }
+
+  header {
+    padding-right: 23px !important;
+    padding-left: 23px !important;
+  }
+
+  nav {
+    padding-right: 13px !important;
+    padding-left: 13px !important;
+  }
+
+  nav button {
+    padding: 11px 10px !important;
+    font-size: 11px;
+  }
+}
+
+/* Mobile: compact horizontal navigation */
+
+@media (max-width: 700px) {
+  :root {
+    --cc-sidebar-width: 0px;
+  }
+
+  header {
+    position: relative;
+    left: auto;
+    height: auto;
+    min-height: 76px;
+    padding: 17px 16px !important;
+    gap: 12px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+
+  header small {
+    font-size: 10px;
+  }
+
+  header span {
+    max-width: 125px;
+    font-size: 11px;
+  }
+
+  header button {
+    padding: 9px 11px !important;
+    font-size: 11px;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    z-index: 25;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap !important;
+    gap: 5px !important;
+    width: 100%;
+    height: auto;
+    padding: 10px !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: var(--cc-navy) !important;
+    box-shadow: 0 5px 16px rgba(17, 28, 54, .14) !important;
+  }
+
+  nav::before {
+    display: none;
+  }
+
+  nav::after {
+    display: none;
+  }
+
+  nav button {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 39px;
+    padding: 10px 12px !important;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 28px 15px 22px !important;
+  }
+
+  main > h1 {
+    font-size: 27px;
+  }
+
+  div[style*="box-shadow: 0 2px 8px"] {
+    padding: 18px !important;
+    margin-bottom: 17px !important;
+  }
+
+  h3 {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    padding: 12px 10px !important;
+  }
+
+  footer {
+    margin-top: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

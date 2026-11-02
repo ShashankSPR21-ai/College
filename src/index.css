@@ -49,3 +49,22 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   background: #dcd6ff;
   color: #17243b;
 }
+
+/* Smooth scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d4e4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b6cc;
+}

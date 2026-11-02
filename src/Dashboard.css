@@ -38,6 +38,7 @@
   flex-direction: column;
   background: #fff;
   border-right: 1px solid var(--cc-border);
+  box-shadow: 2px 0 20px rgb(91 76 226 / 4%);
 }
 
 .cc-brand {
@@ -101,10 +102,16 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.cc-side-nav button:hover,
-.cc-side-nav button.active {
+.cc-side-nav button:hover {
   background: #f0eeff;
   color: var(--cc-primary);
+}
+
+.cc-side-nav button.active {
+  background: #edeaff;
+  color: var(--cc-primary);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--cc-primary);
 }
 
 .cc-sidebar-bottom {
@@ -176,6 +183,7 @@
   padding: 15px 4.5%;
   border-bottom: 1px solid var(--cc-border);
   background: #fff;
+  box-shadow: 0 1px 0 #e9eaf2, 0 4px 16px rgb(20 21 58 / 4%);
 }
 
 .cc-breadcrumb {
@@ -224,7 +232,8 @@
   padding: 34px 40px;
   border: 1px solid #e8e4ff;
   border-radius: 20px;
-  background: linear-gradient(110deg, #f0edff 0%, #f8f7ff 62%, #eceaff 100%);
+  background: linear-gradient(115deg, #ede8ff 0%, #f6f4ff 55%, #e8e3ff 100%);
+  box-shadow: 0 8px 30px rgb(91 76 226 / 8%);
 }
 
 .cc-welcome-copy {
@@ -280,12 +289,13 @@
   border: 1px solid var(--cc-primary);
   background: var(--cc-primary);
   color: #fff;
-  box-shadow: 0 6px 16px #5b4ce226;
+  box-shadow: 0 6px 20px rgb(91 76 226 / 20%);
 }
 
 .cc-primary-btn:hover {
   transform: translateY(-2px);
   background: var(--cc-primary-dark);
+  box-shadow: 0 10px 28px rgb(91 76 226 / 28%);
 }
 
 .cc-secondary-btn {
@@ -353,12 +363,14 @@
   border: 1px solid var(--cc-border);
   border-radius: 15px;
   background: #fff;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 10px rgb(32 33 58 / 4%);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
 .cc-stat-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px #20213a09;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgb(91 76 226 / 10%);
+  border-color: #dcd6ff;
 }
 
 .cc-stat-icon {
@@ -445,9 +457,9 @@
 }
 
 .cc-course-card:hover {
-  transform: translateY(-3px);
-  border-color: #dcd6ff;
-  box-shadow: 0 12px 32px #25244b0a;
+  transform: translateY(-4px);
+  border-color: #c9c2ff;
+  box-shadow: 0 14px 36px rgb(91 76 226 / 9%);
 }
 
 .cc-course-card-top {
@@ -1200,5 +1212,79 @@
 
   .cc-stats-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+/* Topbar actions and visible logout button */
+
+.cc-topbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cc-topbar-logout {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  border: 1px solid #ffd8d8;
+  border-radius: 9px;
+  background: #fff5f5;
+  color: #d44848;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.cc-topbar-logout:hover {
+  border-color: #ffbaba;
+  background: #ffe8e8;
+}
+
+.cc-topbar-logout:focus-visible {
+  outline: 2px solid #d44848;
+  outline-offset: 3px;
+}
+
+.cc-topbar-logout:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Keep logout visible on mobile screens */
+
+@media (max-width: 760px) {
+  .cc-topbar {
+    gap: 8px;
+    padding: 12px 12px;
+  }
+
+  .cc-topbar-actions {
+    gap: 4px;
+  }
+
+  .cc-topbar-logout {
+    min-height: 34px;
+    gap: 4px;
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .cc-user-chip {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .cc-topbar-logout {
+    padding: 0 6px;
+    font-size: 9px;
   }
 }

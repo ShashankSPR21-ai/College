@@ -1,8 +1,11 @@
+
 import { useEffect, useState } from 'react'
 import Auth from './Auth'
-import Dashboard from './Dashboard'
+import AuthenticatedApp from './AuthenticatedApp'
 import { supabase } from './lib/supabaseClient'
 import './App.css'
+
+const CURRENT_YEAR = new Date().getFullYear()
 
 const courses = [
   {
@@ -102,21 +105,23 @@ function App() {
     }
   }, [])
 
+  // Route authenticated users through database role verification.
+  if (session?.user) {
+    return (
+      <AuthenticatedApp
+        user={session.user}
+        onLogout={() => {
+          setSession(null)
+        }}
+      />
+    )
+  }
+
   if (checkingSession) {
     return (
       <div className="app-loading">
         <p>Loading CourseCompass...</p>
       </div>
-    )
-  }
-
-  if (session?.user) {
-    return (
-      <Dashboard
-        key={session.user.id}
-        user={session.user}
-        onLogout={() => setSession(null)}
-      />
     )
   }
 
@@ -162,6 +167,7 @@ function App() {
       </header>
 
       <main>
+        {/* Hero Section */}
         <section className="hero" id="home">
           <div className="hero-content">
             <span className="eyebrow">
@@ -244,6 +250,7 @@ function App() {
           </div>
         </section>
 
+        {/* Statistics Section */}
         <section className="stats-section">
           <div className="stat-item">
             <strong>Explore</strong>
@@ -266,6 +273,7 @@ function App() {
           </div>
         </section>
 
+        {/* Courses Section */}
         <section className="courses-section" id="courses">
           <div className="section-heading">
             <div>
@@ -343,6 +351,7 @@ function App() {
           )}
         </section>
 
+        {/* Career Guidance Section */}
         <section className="guidance-section" id="guidance">
           <div className="guidance-content">
             <span className="eyebrow">YOUR NEXT CHAPTER</span>
@@ -394,6 +403,7 @@ function App() {
           </div>
         </section>
 
+        {/* Call to Action */}
         <section className="cta-section">
           <span className="eyebrow">TAKE THE FIRST STEP</span>
           <h2>Ready to explore your possibilities?</h2>
@@ -409,6 +419,7 @@ function App() {
         </section>
       </main>
 
+      {/* Footer */}
       <footer className="footer">
         <a className="brand footer-brand" href="#home">
           <span className="brand-icon">C</span>
@@ -420,10 +431,11 @@ function App() {
         <p>Helping students explore education and career possibilities.</p>
 
         <span className="footer-copyright">
-          © {new Date().getFullYear()} CourseCompass. All rights reserved.
+          © {CURRENT_YEAR} CourseCompass. All rights reserved.
         </span>
       </footer>
 
+      {/* Course Details Modal */}
       {selectedCourse && (
         <div
           className="modal-backdrop"
@@ -452,7 +464,9 @@ function App() {
             </span>
 
             <h2 id="course-modal-title">{selectedCourse.name}</h2>
-            <span className="course-category">{selectedCourse.category}</span>
+            <span className="course-category">
+              {selectedCourse.category}
+            </span>
 
             <p>{selectedCourse.description}</p>
 
@@ -478,6 +492,7 @@ function App() {
         </div>
       )}
 
+      {/* Authentication Modal */}
       {authMode !== null && (
         <Auth
           key={authMode}

@@ -11,7 +11,7 @@
   justify-content: center;
   padding: 20px;
   overflow-y: auto;
-  background: rgba(14, 18, 42, 0.66);
+  background: rgba(10, 13, 38, 0.72);
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
   animation: authFadeIn 0.2s ease-out;
@@ -38,7 +38,7 @@
   border-radius: 23px;
   background: #ffffff;
   color: #172033;
-  box-shadow: 0 30px 100px rgba(9, 12, 40, 0.3);
+  box-shadow: 0 32px 110px rgba(9, 12, 40, 0.32), 0 0 0 1px rgba(255,255,255,0.9);
   animation: authSlideIn 0.25s ease-out;
 }
 
@@ -185,7 +185,7 @@
   padding: 12px 18px;
   border: 1px solid #5145e5;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6657f2, #4b3dd1);
+  background: linear-gradient(135deg, #6e5ef8 0%, #4b3dd1 100%);
   box-shadow: 0 6px 15px rgba(81, 69, 229, 0.18);
   color: #ffffff;
   font-family: 'DM Sans', sans-serif;
@@ -200,7 +200,7 @@
 
 .auth-submit:hover:not(:disabled) {
   transform: translateY(-1px);
-  background: linear-gradient(135deg, #5748e3, #3e30bf);
+  background: linear-gradient(135deg, #5d4fe6 0%, #3a2cbb 100%);
   box-shadow: 0 9px 21px rgba(81, 69, 229, 0.25);
 }
 
