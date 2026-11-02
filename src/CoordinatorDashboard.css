@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-:root {
+.coordinator-dashboard {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #172033;
   background: #f5f7fb;
@@ -24,33 +24,16 @@
   --cc-shadow: 0 6px 24px rgba(24, 39, 75, .045);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  min-width: 320px;
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background: var(--cc-bg);
-  color: var(--cc-text);
+.coordinator-dashboard,
+.coordinator-dashboard button,
+.coordinator-dashboard input,
+.coordinator-dashboard select,
+.coordinator-dashboard textarea {
   font-size: 14px;
-}
-
-body,
-button,
-input,
-select,
-textarea {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-button {
+.coordinator-dashboard button {
   border: 0;
   border-radius: 10px !important;
   padding: 11px 16px !important;
@@ -59,30 +42,30 @@ button {
   transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-button:not(:disabled) {
+.coordinator-dashboard button:not(:disabled) {
   cursor: pointer;
 }
 
-button:not(:disabled):hover {
+.coordinator-dashboard button:not(:disabled):hover {
   transform: translateY(-1px);
   box-shadow: 0 5px 14px rgba(23, 32, 51, .11);
 }
 
-button:disabled {
+.coordinator-dashboard button:disabled {
   opacity: .58;
   cursor: not-allowed !important;
 }
 
 /* Application shell */
 
-#root > div[style*="min-height: 100vh"] {
+.coordinator-dashboard {
   min-height: 100vh;
   background: var(--cc-bg) !important;
 }
 
 /* Top application bar */
 
-header {
+.coordinator-dashboard header {
   position: fixed;
   z-index: 30;
   top: 0;
@@ -97,7 +80,7 @@ header {
   backdrop-filter: blur(16px);
 }
 
-header h2 {
+.coordinator-dashboard header h2 {
   margin: 0;
   color: #172033;
   font-size: 21px;
@@ -105,7 +88,7 @@ header h2 {
   letter-spacing: -.8px;
 }
 
-header small {
+.coordinator-dashboard header small {
   display: inline-block;
   margin-top: 4px;
   color: var(--cc-muted) !important;
@@ -114,7 +97,7 @@ header small {
   letter-spacing: .5px;
 }
 
-header span {
+.coordinator-dashboard header span {
   max-width: 230px;
   overflow: hidden;
   color: #515c73;
@@ -124,7 +107,7 @@ header span {
   white-space: nowrap;
 }
 
-header button {
+.coordinator-dashboard header button {
   background: #fff0f0 !important;
   color: #c43c48 !important;
   border: 1px solid #ffe0e2 !important;
@@ -133,7 +116,7 @@ header button {
 /* Sidebar navigation
    The existing JSX nav becomes a fixed sidebar. */
 
-nav {
+.coordinator-dashboard nav {
   position: fixed;
   z-index: 40;
   top: 0;
@@ -159,7 +142,7 @@ nav {
 
 /* Sidebar brand area */
 
-nav::before {
+.coordinator-dashboard nav::before {
   content: 'COURSECOMPASS';
   position: absolute;
   top: 26px;
@@ -170,7 +153,7 @@ nav::before {
   letter-spacing: 1.2px;
 }
 
-nav::after {
+.coordinator-dashboard nav::after {
   content: 'COORDINATOR WORKSPACE';
   position: absolute;
   top: 52px;
@@ -181,7 +164,7 @@ nav::after {
   letter-spacing: 1.3px;
 }
 
-nav button {
+.coordinator-dashboard nav button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -200,7 +183,7 @@ nav button {
   white-space: normal;
 }
 
-nav button:hover {
+.coordinator-dashboard nav button:hover {
   background: rgba(255,255,255,.07) !important;
   color: #fff !important;
   transform: none;
@@ -209,8 +192,8 @@ nav button:hover {
 
 /* The active nav button uses inline background #1d4ed8. */
 
-nav button[style*="background: rgb(29, 78, 216)"],
-nav button[style*="background: rgb(29, 78, 216)"]:hover {
+.coordinator-dashboard nav button[style*="background: rgb(29, 78, 216)"],
+.coordinator-dashboard nav button[style*="background: rgb(29, 78, 216)"]:hover {
   background: linear-gradient(110deg, #5268e8, #4357ce) !important;
   color: #fff !important;
   border-color: rgba(255,255,255,.12) !important;
@@ -219,7 +202,7 @@ nav button[style*="background: rgb(29, 78, 216)"]:hover {
 
 /* Main workspace */
 
-main {
+.coordinator-dashboard main {
   width: auto !important;
   max-width: none !important;
   min-width: 0;
@@ -227,7 +210,7 @@ main {
   padding: 110px 36px 28px !important;
 }
 
-main > h1 {
+.coordinator-dashboard main > h1 {
   margin-top: 2px;
   margin-bottom: 9px !important;
   color: #172033;
@@ -237,7 +220,7 @@ main > h1 {
   line-height: 1.25;
 }
 
-main > p {
+.coordinator-dashboard main > p {
   max-width: 800px;
   color: var(--cc-muted) !important;
   font-size: 13px;
@@ -246,13 +229,13 @@ main > p {
 
 /* Section headings */
 
-h2 {
+.coordinator-dashboard h2 {
   color: #19233a;
   font-weight: 750;
   letter-spacing: -.55px;
 }
 
-h3 {
+.coordinator-dashboard h3 {
   margin-top: 30px;
   margin-bottom: 19px;
   padding-bottom: 12px;
@@ -265,7 +248,7 @@ h3 {
 
 /* Cards and panels */
 
-div[style*="box-shadow: 0 2px 8px"] {
+.coordinator-dashboard div[style*="box-shadow: 0 2px 8px"] {
   margin-bottom: 23px !important;
   padding: 25px !important;
   border: 1px solid var(--cc-border);
@@ -275,14 +258,14 @@ div[style*="box-shadow: 0 2px 8px"] {
   transition: box-shadow .2s ease, border-color .2s ease;
 }
 
-div[style*="box-shadow: 0 2px 8px"]:hover {
+.coordinator-dashboard div[style*="box-shadow: 0 2px 8px"]:hover {
   border-color: #dfe4f4;
   box-shadow: 0 10px 32px rgba(24, 39, 75, .065) !important;
 }
 
 /* Overview statistics */
 
-main h2[style*="font-size: 32px"] {
+.coordinator-dashboard main h2[style*="font-size: 32px"] {
   margin-top: 8px !important;
   color: var(--cc-primary) !important;
   font-size: 34px !important;
@@ -290,13 +273,13 @@ main h2[style*="font-size: 32px"] {
   letter-spacing: -1px;
 }
 
-main div[style*="box-shadow: 0 2px 8px"] p {
+.coordinator-dashboard main div[style*="box-shadow: 0 2px 8px"] p {
   color: var(--cc-muted);
   font-size: 12px;
   font-weight: 600;
 }
 
-main div[style*="box-shadow: 0 2px 8px"] > div[style*="font-size: 30px"] {
+.coordinator-dashboard main div[style*="box-shadow: 0 2px 8px"] > div[style*="font-size: 30px"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -308,7 +291,7 @@ main div[style*="box-shadow: 0 2px 8px"] > div[style*="font-size: 30px"] {
 
 /* Forms */
 
-label {
+.coordinator-dashboard label {
   display: block;
   color: #46516a;
   font-size: 12px !important;
@@ -316,9 +299,9 @@ label {
   line-height: 1.7;
 }
 
-input:not([type="checkbox"]),
-select,
-textarea {
+.coordinator-dashboard input:not([type="checkbox"]),
+.coordinator-dashboard select,
+.coordinator-dashboard textarea {
   width: 100%;
   max-width: 100%;
   min-height: 43px;
@@ -335,24 +318,24 @@ textarea {
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-input:not([type="checkbox"]):focus,
-select:focus,
-textarea:focus {
+.coordinator-dashboard input:not([type="checkbox"]):focus,
+.coordinator-dashboard select:focus,
+.coordinator-dashboard textarea:focus {
   border-color: #8290f4 !important;
   box-shadow: 0 0 0 4px rgba(82, 104, 232, .10) !important;
 }
 
-input::placeholder,
-textarea::placeholder {
+.coordinator-dashboard input::placeholder,
+.coordinator-dashboard textarea::placeholder {
   color: #a0a9bb;
 }
 
-textarea {
+.coordinator-dashboard textarea {
   min-height: 110px;
   line-height: 1.7;
 }
 
-input[type="checkbox"] {
+.coordinator-dashboard input[type="checkbox"] {
   width: 17px;
   height: 17px;
   accent-color: var(--cc-primary);
@@ -361,35 +344,35 @@ input[type="checkbox"] {
 
 /* Primary, secondary and destructive actions */
 
-button[style*="background: rgb(37, 99, 235)"] {
+.coordinator-dashboard button[style*="background: rgb(37, 99, 235)"] {
   background: var(--cc-primary) !important;
   color: white !important;
   box-shadow: 0 4px 10px rgba(82, 104, 232, .15);
 }
 
-button[style*="background: rgb(37, 99, 235)"]:hover {
+.coordinator-dashboard button[style*="background: rgb(37, 99, 235)"]:hover {
   background: var(--cc-primary-hover) !important;
 }
 
-button[style*="background: rgb(226, 232, 240)"] {
+.coordinator-dashboard button[style*="background: rgb(226, 232, 240)"] {
   background: #f0f2f8 !important;
   color: #47516a !important;
   border: 1px solid #e4e8f1 !important;
 }
 
-button[style*="background: rgb(254, 226, 226)"] {
+.coordinator-dashboard button[style*="background: rgb(254, 226, 226)"] {
   background: #fff0f0 !important;
   color: #c43c48 !important;
   border: 1px solid #ffe0e2 !important;
 }
 
-button[type="submit"] {
+.coordinator-dashboard button[type="submit"] {
   min-height: 43px;
 }
 
 /* Tables */
 
-div[style*="overflow-x: auto"] {
+.coordinator-dashboard div[style*="overflow-x: auto"] {
   max-width: 100%;
   margin-bottom: 25px;
   overflow-x: auto !important;
@@ -399,7 +382,7 @@ div[style*="overflow-x: auto"] {
   box-shadow: var(--cc-shadow);
 }
 
-table {
+.coordinator-dashboard table {
   width: 100%;
   min-width: 800px;
   border-collapse: separate !important;
@@ -407,7 +390,7 @@ table {
   background: #fff;
 }
 
-thead th {
+.coordinator-dashboard thead th {
   background: #f6f7fc !important;
   color: #737e95 !important;
   font-size: 10px !important;
@@ -417,8 +400,8 @@ thead th {
   white-space: nowrap;
 }
 
-th,
-td {
+.coordinator-dashboard th,
+.coordinator-dashboard td {
   padding: 15px 14px !important;
   border-bottom: 1px solid #edf0f6 !important;
   text-align: left;
@@ -426,42 +409,42 @@ td {
   line-height: 1.7;
 }
 
-td {
+.coordinator-dashboard td {
   color: #515c73;
   font-size: 12px !important;
 }
 
-tbody tr {
+.coordinator-dashboard tbody tr {
   transition: background .15s ease;
 }
 
-tbody tr:hover {
+.coordinator-dashboard tbody tr:hover {
   background: #f8f9fe;
 }
 
-tbody tr:last-child td {
+.coordinator-dashboard tbody tr:last-child td {
   border-bottom: none !important;
 }
 
-td strong {
+.coordinator-dashboard td strong {
   color: #202a40;
   font-weight: 750;
 }
 
-td small {
+.coordinator-dashboard td small {
   margin-top: 4px;
   color: var(--cc-muted);
   line-height: 1.5;
 }
 
-td button {
+.coordinator-dashboard td button {
   margin: 2px 0;
   white-space: nowrap;
 }
 
 /* Search boxes */
 
-input[placeholder*="Search"] {
+.coordinator-dashboard input[placeholder*="Search"] {
   display: block;
   max-width: 480px;
   min-height: 45px;
@@ -471,8 +454,8 @@ input[placeholder*="Search"] {
 
 /* Feedback */
 
-[role="alert"],
-[role="status"] {
+.coordinator-dashboard [role="alert"],
+.coordinator-dashboard [role="status"] {
   margin: 16px 0 22px;
   padding: 15px 18px !important;
   border-radius: 11px !important;
@@ -480,17 +463,17 @@ input[placeholder*="Search"] {
   line-height: 1.7;
 }
 
-[role="alert"] {
+.coordinator-dashboard [role="alert"] {
   border: 1px solid #ffd4d4;
 }
 
-[role="status"] {
+.coordinator-dashboard [role="status"] {
   border: 1px solid #c9efdd;
 }
 
 /* Footer */
 
-footer {
+.coordinator-dashboard footer {
   margin-top: 34px;
   padding-top: 22px !important;
   border-top: 1px solid var(--cc-border);
@@ -500,7 +483,8 @@ footer {
 
 /* Loading screen */
 
-body > #root > div[style*="padding: 40px"] {
+.coordinator-dashboard-loading {
+  --cc-muted: #7b8499;
   min-height: 100vh;
   display: grid;
   place-content: center;
@@ -512,26 +496,26 @@ body > #root > div[style*="padding: 40px"] {
 /* Tablet */
 
 @media (max-width: 1050px) {
-  :root {
+  .coordinator-dashboard {
     --cc-sidebar-width: 220px;
   }
 
-  main {
+  .coordinator-dashboard main {
     padding-right: 23px !important;
     padding-left: 23px !important;
   }
 
-  header {
+  .coordinator-dashboard header {
     padding-right: 23px !important;
     padding-left: 23px !important;
   }
 
-  nav {
+  .coordinator-dashboard nav {
     padding-right: 13px !important;
     padding-left: 13px !important;
   }
 
-  nav button {
+  .coordinator-dashboard nav button {
     padding: 11px 10px !important;
     font-size: 11px;
   }
@@ -540,38 +524,39 @@ body > #root > div[style*="padding: 40px"] {
 /* Mobile: compact horizontal navigation */
 
 @media (max-width: 700px) {
-  :root {
+  .coordinator-dashboard {
     --cc-sidebar-width: 0px;
   }
 
-  header {
+  .coordinator-dashboard header {
     position: relative;
     left: auto;
     height: auto;
     min-height: 76px;
+    flex-wrap: wrap;
     padding: 17px 16px !important;
     gap: 12px;
   }
 
-  header h2 {
+  .coordinator-dashboard header h2 {
     font-size: 18px;
   }
 
-  header small {
+  .coordinator-dashboard header small {
     font-size: 10px;
   }
 
-  header span {
+  .coordinator-dashboard header span {
     max-width: 125px;
     font-size: 11px;
   }
 
-  header button {
+  .coordinator-dashboard header button {
     padding: 9px 11px !important;
     font-size: 11px;
   }
 
-  nav {
+  .coordinator-dashboard nav {
     position: sticky;
     top: 0;
     bottom: auto;
@@ -589,15 +574,15 @@ body > #root > div[style*="padding: 40px"] {
     box-shadow: 0 5px 16px rgba(17, 28, 54, .14) !important;
   }
 
-  nav::before {
+  .coordinator-dashboard nav::before {
     display: none;
   }
 
-  nav::after {
+  .coordinator-dashboard nav::after {
     display: none;
   }
 
-  nav button {
+  .coordinator-dashboard nav button {
     flex: 0 0 auto;
     width: auto;
     min-height: 39px;
@@ -606,39 +591,39 @@ body > #root > div[style*="padding: 40px"] {
     white-space: nowrap;
   }
 
-  main {
+  .coordinator-dashboard main {
     margin: 0 !important;
     padding: 28px 15px 22px !important;
   }
 
-  main > h1 {
+  .coordinator-dashboard main > h1 {
     font-size: 27px;
   }
 
-  div[style*="box-shadow: 0 2px 8px"] {
+  .coordinator-dashboard div[style*="box-shadow: 0 2px 8px"] {
     padding: 18px !important;
     margin-bottom: 17px !important;
   }
 
-  h3 {
+  .coordinator-dashboard h3 {
     margin-top: 24px;
     font-size: 14px;
   }
 
-  th,
-  td {
+  .coordinator-dashboard th,
+  .coordinator-dashboard td {
     padding: 12px 10px !important;
   }
 
-  footer {
+  .coordinator-dashboard footer {
     margin-top: 22px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  .coordinator-dashboard *,
+  .coordinator-dashboard *::before,
+  .coordinator-dashboard *::after {
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
     animation-duration: .01ms !important;

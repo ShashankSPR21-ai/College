@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-:root {
+.app {
   font-family: 'DM Sans', sans-serif;
   color: #172033;
   background: #ffffff;
@@ -24,44 +24,29 @@
   --shadow: 0 12px 40px rgba(30, 34, 80, 0.06);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  background: #ffffff;
-}
-
-body,
-button,
-input {
+.app,
+.app button,
+.app input {
   font-family: 'DM Sans', sans-serif;
 }
 
-button,
-a {
+.app button,
+.app a {
   -webkit-tap-highlight-color: transparent;
 }
 
-button {
+.app button {
   font: inherit;
 }
 
-a {
+.app a {
   color: inherit;
   text-decoration: none;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
+.app button:focus-visible,
+.app a:focus-visible,
+.app input:focus-visible {
   outline: 3px solid rgba(81, 69, 229, 0.3);
   outline-offset: 3px;
 }
@@ -76,7 +61,7 @@ input:focus-visible {
   overflow: clip;
 }
 
-::selection {
+.app ::selection {
   background: #dedaff;
   color: #29216d;
 }
@@ -1377,9 +1362,9 @@ input:focus-visible {
 /* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  .app *,
+  .app *::before,
+  .app *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

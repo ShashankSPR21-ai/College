@@ -1016,11 +1016,18 @@ export default function CoordinatorDashboard({ user, onLogout }) {
   ];
 
   if (loading) {
-    return <div style={{ padding: 40 }}>Loading Coordinator Dashboard...</div>;
+    return (
+      <div
+        className="coordinator-dashboard-loading"
+        style={{ padding: 40 }}
+      >
+        Loading Coordinator Dashboard...
+      </div>
+    );
   }
 
   return (
-    <div style={styles.page}>
+    <div className="coordinator-dashboard" style={styles.page}>
       <header style={styles.header}>
         <div>
           <h2 style={{ margin: 0 }}>CourseCompass</h2>

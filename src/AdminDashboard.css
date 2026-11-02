@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-:root {
+.admin-page {
   font-family: 'Inter', system-ui, sans-serif;
   color: #101623;
   background: #f4f7fb;
@@ -13,7 +13,7 @@
   --admin-border: #e6ebf2;
 }
 
-* {
+.admin-page * {
   box-sizing: border-box;
 }
 
@@ -1071,6 +1071,15 @@
 }
 
 @media (max-width: 600px) {
+  .admin-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .admin-header-right {
+    gap: 8px;
+  }
+
   .admin-header h1 {
     font-size: 14px;
   }
